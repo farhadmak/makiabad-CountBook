@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the Send button */
     public void createCounter(View view) {
         Intent intent = new Intent(this, createCounter.class);
-        Button newCounterButton = (Button) findViewById(R.id.newCounter);
+        //Button newCounterButton = (Button) findViewById(R.id.newCounter);
         startActivity(intent);
     }
 }

@@ -11,6 +11,7 @@
         android:layout_width="139dp"
         android:layout_height="85dp"
         android:text="+"
+        android:onClick="Increment"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:layout_marginLeft="80dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,6 +24,7 @@
         android:layout_width="139dp"
         android:layout_height="85dp"
         android:text="-"
+        android:onClick="Decrement"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:layout_marginLeft="80dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -68,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
+        android:onClick="cancelCounter"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="65dp"
         android:layout_marginLeft="148dp"
@@ -81,6 +84,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="Reset"
+        android:onClick="resetCounter"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintLeft_toRightOf="@+id/cancel"
         app:layout_constraintRight_toRightOf="parent"
@@ -90,18 +94,18 @@
         android:layout_marginEnd="8dp" />
 
     <EditText
-        android:id="@+id/user_count_name"
+        android:id="@+id/userinitVal"
         android:layout_width="216dp"
         android:layout_height="42dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Enter the initial value"
-        android:inputType="text"
+        android:inputType="number"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/editText14"
         app:layout_constraintLeft_toRightOf="@+id/textView6"
-        android:layout_marginLeft="46dp"
-        android:layout_marginStart="46dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editText14" />
 
     <EditText
         android:id="@+id/editText14"
@@ -142,15 +146,25 @@
         android:layout_marginStart="16dp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/viewCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="116dp"
+        android:layout_marginRight="116dp"
+        android:layout_marginTop="163dp"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-        android:layout_marginRight="116dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="163dp"
-        android:layout_marginEnd="116dp" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/viewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="190dp"
+        android:layout_marginLeft="16dp"
+        android:text="Date TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
