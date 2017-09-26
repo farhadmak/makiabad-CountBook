@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,7 +17,7 @@ public class createCounter extends AppCompatActivity implements Counter {
 
     private String name;
     private Date date;
-    private Integer curVal;
+    private Integer curVal = 0;
     private Integer initVal;
     private String comment;
 
@@ -34,7 +35,7 @@ public class createCounter extends AppCompatActivity implements Counter {
     }
     public void setDate(TextView viewDate) {
         Date today = Calendar.getInstance().getTime();
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM dd hh:mm:ss yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
         String date = formatter.format(today);
         viewDate.setText(date);
     }
@@ -46,9 +47,7 @@ public class createCounter extends AppCompatActivity implements Counter {
         //View Date
         TextView dateText = (TextView) findViewById(R.id.viewDate);
         setDate(dateText);
-        //Get init value from user input
-        EditText initEdit   = (EditText)findViewById(R.id.userinitVal);
-        //initVal = initEdit.getText().toString();
+
 
     }
 
@@ -59,10 +58,31 @@ public class createCounter extends AppCompatActivity implements Counter {
         finish();
         startActivity(getIntent());
     }
+    public void saveCounter(View view) {
+        //save Counter name
+        EditText counterName = (EditText)findViewById(R.id.counterName);
+        name = counterName.getText().toString();
+        //save comment if it exists
+        EditText commentText = (EditText)findViewById(R.id.commentText);
+        if (commentText.getText().toString().trim().length() != 0){
+            comment = commentText.getText().toString();
+        }
+        if (name.trim().length() == 0){
+            Toast.makeText(createCounter.this, "You left the counter name blank!", Toast.LENGTH_SHORT).show();
+        }
+        EditText initEdit = (EditText)findViewById(R.id.userinitVal);
+        String initText = initEdit.getText().toString().trim();
+        if (initText.isEmpty()){
+            Toast.makeText(createCounter.this, "You left the initial value blank!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
     public void Decrement (View view){
         curVal = getCurVal();
-        curVal -= 1;
+        if (curVal > 0){
+            curVal -= 1;
+        }
         TextView counterText = (TextView) findViewById(R.id.viewCounter);
         counterText.setText(String.valueOf(curVal));
     }
@@ -71,5 +91,16 @@ public class createCounter extends AppCompatActivity implements Counter {
         curVal += 1;
         TextView counterText = (TextView) findViewById(R.id.viewCounter);
         counterText.setText(String.valueOf(curVal));
+    }
+
+    public void updateInitVal(View view){
+        //Button updateButton = (Button) findViewById(R.id.updateButton)
+        EditText initEdit = (EditText)findViewById(R.id.userinitVal);
+        TextView counterText = (TextView) findViewById(R.id.viewCounter);
+        counterText.setText(initEdit.getText().toString());
+        initVal = Integer.parseInt(initEdit.getText().toString());
+        curVal = Integer.parseInt(initEdit.getText().toString());
+
+        //initVal = Integer.initEdit.getText().toString();
     }
 }
