@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class createCounter extends AppCompatActivity implements Counter {
+public class createCounter extends AppCompatActivity {
 
     private String name;
     private Date date;
@@ -35,9 +35,10 @@ public class createCounter extends AppCompatActivity implements Counter {
     }
     public void setDate(TextView viewDate) {
         Date today = Calendar.getInstance().getTime();
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
         String date = formatter.format(today);
         viewDate.setText(date);
+
     }
 
     @Override
@@ -76,19 +77,22 @@ public class createCounter extends AppCompatActivity implements Counter {
             Toast.makeText(createCounter.this, "You left the initial value blank!", Toast.LENGTH_SHORT).show();
         }
 
+
+        finish();
+
     }
 
     public void Decrement (View view){
         curVal = getCurVal();
         if (curVal > 0){
-            curVal -= 1;
+            curVal--;
         }
         TextView counterText = (TextView) findViewById(R.id.viewCounter);
         counterText.setText(String.valueOf(curVal));
     }
     public void Increment (View view){
         curVal = getCurVal();
-        curVal += 1;
+        curVal++;
         TextView counterText = (TextView) findViewById(R.id.viewCounter);
         counterText.setText(String.valueOf(curVal));
     }
@@ -97,9 +101,15 @@ public class createCounter extends AppCompatActivity implements Counter {
         //Button updateButton = (Button) findViewById(R.id.updateButton)
         EditText initEdit = (EditText)findViewById(R.id.userinitVal);
         TextView counterText = (TextView) findViewById(R.id.viewCounter);
-        counterText.setText(initEdit.getText().toString());
-        initVal = Integer.parseInt(initEdit.getText().toString());
-        curVal = Integer.parseInt(initEdit.getText().toString());
+        String initText = initEdit.getText().toString().trim();
+        if (initText.isEmpty()) {
+            Toast.makeText(createCounter.this, "You left the initial value blank!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            counterText.setText(initEdit.getText().toString());
+            initVal = Integer.parseInt(initEdit.getText().toString());
+            curVal = Integer.parseInt(initEdit.getText().toString());
+        }
 
         //initVal = Integer.initEdit.getText().toString();
     }

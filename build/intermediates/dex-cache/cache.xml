@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/farhadmakiabady/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf">
+        <dex dex="/Users/farhadmakiabady/Dropbox/School/CMPUT 301/assignment1/makiabad-CountBook/app/build/intermediates/pre-dexed/debug/gson-2.8.2_7429dc73099deb41552738f7b27cdcbca8ce9b38.jar" />
+    </item>
+
+</items>
