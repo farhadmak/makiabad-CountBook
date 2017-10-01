@@ -12,7 +12,9 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+/*
+Activity class for creating a counter
+ */
 public class createCounter extends AppCompatActivity {
 
     private String name;
@@ -33,6 +35,10 @@ public class createCounter extends AppCompatActivity {
     public Integer getCurVal() {
         return curVal;
     }
+
+    /*
+    Method to setting the current date using SimpleDateFormat
+     */
     public void setDate(TextView viewDate) {
         Date today = Calendar.getInstance().getTime();
         SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
@@ -51,7 +57,9 @@ public class createCounter extends AppCompatActivity {
 
 
     }
-
+/*
+cancel & reset button functionality
+ */
     public void cancelCounter(View view) {
         finish();
     }
@@ -59,6 +67,10 @@ public class createCounter extends AppCompatActivity {
         finish();
         startActivity(getIntent());
     }
+    /*
+    When save button is clicked, save name, init val, curval, and comment if it exists
+    If name or curval is left blank, do not finish activity and raise a toast.
+     */
     public void saveCounter(View view) {
         //save Counter name
         EditText counterName = (EditText)findViewById(R.id.counterName);
@@ -78,7 +90,9 @@ public class createCounter extends AppCompatActivity {
         }
 
     }
-
+/*
+Increment & Decrement methods for plus and minus buttons
+ */
     public void Decrement (View view){
         curVal = getCurVal();
         if (curVal > 0){
@@ -93,7 +107,9 @@ public class createCounter extends AppCompatActivity {
         TextView counterText = (TextView) findViewById(R.id.viewCounter);
         counterText.setText(String.valueOf(curVal));
     }
-
+/*
+When update button is pressed, set whatever value in the input field to the counter number.
+ */
     public void updateInitVal(View view){
         //Button updateButton = (Button) findViewById(R.id.updateButton)
         EditText initEdit = (EditText)findViewById(R.id.userinitVal);

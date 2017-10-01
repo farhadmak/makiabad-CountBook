@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+/*
+Method for what happens when clicking on an item in the arraylist
+ */
     private void registerClick() {
         counterList = (ListView) findViewById(R.id.counterList);
         counterList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,18 +82,14 @@ public class MainActivity extends AppCompatActivity {
         viewcounterAmount.setText(String.valueOf(counteramount));
 
     }
+    /*
+    method to add a counter to the arraylist
+     */
     public void addCounter(Counter counter){
         counters.add(counter);
         adapter.notifyDataSetChanged();
     }
 
-//    /*****************************************************************/
-//    private ArrayList<createCounter> counters = new ArrayList<createCounter>();
-//    private ArrayAdapter<createCounter> adapter;
-//    private static final String FILENAME = "file.sav";
-//    private EditText bodyText;
-//    private ListView counterList;
-//
     @Override
     protected void onStart() {
         // TODO Auto-generated method stub

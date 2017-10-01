@@ -14,6 +14,7 @@ public class Counter extends createCounter{
     private Date date;
     private Integer curVal;
     private Integer initVal;
+    private String comment;
 
 
     public Counter(String name, Date date, Integer curVal, Integer initVal){
@@ -27,7 +28,11 @@ public class Counter extends createCounter{
     }
 
     public Counter(String name, Date date, Integer curVal, Integer initVal, String comment){
-
+        this.name = name;
+        this.date = date;
+        this.curVal = curVal;
+        this.initVal = initVal;
+        this.comment = comment;
     }
     public String getName(){
         return name;
@@ -40,6 +45,9 @@ public class Counter extends createCounter{
     }
     public Integer getInitVal(){
         return initVal;
+    }
+    public String getComment(){
+        return comment;
     }
 
     public String toString(){
