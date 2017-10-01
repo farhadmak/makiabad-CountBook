@@ -50,8 +50,8 @@
         android:id="@+id/counterNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintLeft_toRightOf="@+id/textView"
         android:layout_marginLeft="-17dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView" />
+        android:text="0"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView"
+        app:layout_constraintLeft_toRightOf="@+id/textView" />
 </android.support.constraint.ConstraintLayout>

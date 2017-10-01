@@ -68,17 +68,14 @@ public class createCounter extends AppCompatActivity {
         if (commentText.getText().toString().trim().length() != 0){
             comment = commentText.getText().toString();
         }
-        if (name.trim().length() == 0){
-            Toast.makeText(createCounter.this, "You left the counter name blank!", Toast.LENGTH_SHORT).show();
-        }
         EditText initEdit = (EditText)findViewById(R.id.userinitVal);
         String initText = initEdit.getText().toString().trim();
-        if (initText.isEmpty()){
-            Toast.makeText(createCounter.this, "You left the initial value blank!", Toast.LENGTH_SHORT).show();
+        if ((name.trim().length() == 0) || (initText.isEmpty())) {
+            Toast.makeText(createCounter.this, "You left a field blank!", Toast.LENGTH_SHORT).show();
         }
-
-
-        finish();
+        else{
+            finish();
+        }
 
     }
 

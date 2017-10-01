@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,20 +41,28 @@ public class MainActivity extends AppCompatActivity {
     private ListView counterList;
     private ArrayAdapter<Counter> adapter;
     private ArrayList<Counter> counters = new ArrayList<Counter>();
-
+    private Counter testcounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //counterList = (ListView) findViewById(R.id.counterList);
+        registerClick();
+
+
+    }
+
+    private void registerClick() {
         counterList = (ListView) findViewById(R.id.counterList);
+        counterList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> counterDetail, View view, int pos, long id) {
+                Intent intent = new Intent(MainActivity.this, createCounter.class);
+                startActivity(intent);
 
-
-
-
-//        counteramount = counterList.getAdapter().getCount();
-//        TextView viewcounterAmount = (TextView) findViewById(R.id.counterNum);
-//        viewcounterAmount.setText(counteramount);
+            }
+        });
     }
 
     //
@@ -61,8 +70,14 @@ public class MainActivity extends AppCompatActivity {
     public void createCounter(View view) {
         Intent intent = new Intent(this, createCounter.class);
         startActivity(intent);
-        Counter testcounter = new Counter(name, date, curVal, initVal);
+        testcounter = new Counter(name, date, curVal, initVal);
         addCounter(testcounter);
+
+        //update counter to size of arraylist
+        Integer counteramount = counters.size();
+        System.out.println("length of ArrayList after adding elements: " + counteramount);
+        TextView viewcounterAmount = (TextView) findViewById(R.id.counterNum);
+        viewcounterAmount.setText(String.valueOf(counteramount));
 
     }
     public void addCounter(Counter counter){

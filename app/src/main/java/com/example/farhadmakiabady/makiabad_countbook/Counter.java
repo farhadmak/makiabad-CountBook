@@ -10,11 +10,17 @@ import java.util.Date;
  */
 
 public class Counter extends createCounter{
+    private String name;
+    private Date date;
+    private Integer curVal;
+    private Integer initVal;
+
+
     public Counter(String name, Date date, Integer curVal, Integer initVal){
-        name = new createCounter().getName();
-        date = new createCounter().getDate();
-        curVal = new createCounter().getCurVal();
-        initVal = new createCounter().getInitVal();
+        this.name = name;
+        this.date = date;
+        this.curVal = curVal;
+        this.initVal = initVal;
 
 
 
@@ -22,6 +28,18 @@ public class Counter extends createCounter{
 
     public Counter(String name, Date date, Integer curVal, Integer initVal, String comment){
 
+    }
+    public String getName(){
+        return name;
+    }
+    public Date getDate() {
+        return date;
+    }
+    public Integer getCurVal(){
+        return curVal;
+    }
+    public Integer getInitVal(){
+        return initVal;
     }
 
     public String toString(){
