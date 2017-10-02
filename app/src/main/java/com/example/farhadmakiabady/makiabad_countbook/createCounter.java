@@ -111,7 +111,6 @@ Increment & Decrement methods for plus and minus buttons
 When update button is pressed, set whatever value in the input field to the counter number.
  */
     public void updateInitVal(View view){
-        //Button updateButton = (Button) findViewById(R.id.updateButton)
         EditText initEdit = (EditText)findViewById(R.id.userinitVal);
         TextView counterText = (TextView) findViewById(R.id.viewCounter);
         String initText = initEdit.getText().toString().trim();
@@ -123,7 +122,5 @@ When update button is pressed, set whatever value in the input field to the coun
             initVal = Integer.parseInt(initEdit.getText().toString());
             curVal = Integer.parseInt(initEdit.getText().toString());
         }
-
-        //initVal = Integer.initEdit.getText().toString();
     }
 }

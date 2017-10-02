@@ -27,12 +27,6 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-//    private ArrayList<createCounter> counters = new ArrayList<createCounter>();
-//    private ArrayAdapter<createCounter> adapter;
-//    private static final String FILENAME = "file.sav";
-//    private EditText bodyText;
-
-//    public int counteramount;
     private String name;
     private Date date;
     private Integer curVal;
@@ -47,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //counterList = (ListView) findViewById(R.id.counterList);
         registerClick();
 
 
@@ -77,7 +70,6 @@ Method for what happens when clicking on an item in the arraylist
 
         //update counter to size of arraylist
         Integer counteramount = counters.size();
-        System.out.println("length of ArrayList after adding elements: " + counteramount);
         TextView viewcounterAmount = (TextView) findViewById(R.id.counterNum);
         viewcounterAmount.setText(String.valueOf(counteramount));
 
